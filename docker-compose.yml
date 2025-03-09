@@ -34,7 +34,7 @@ services:
       - zuul    
 
   wishlist:
-    build: ./whislist-microservice-python
+    build: ./wishlist-microservice-python
     ports:
       - 1003:1003
     depends_on:
