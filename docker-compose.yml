@@ -1,0 +1,41 @@
+version: "2"
+services:
+  ui:
+    build: ./ui-web-app-reactjs
+    ports:
+      - 8080:8080
+
+  zuul:
+    build: ./zuul-api-gateway
+    ports:
+      - 9999:9999
+    depends_on:
+      - ui
+
+  shoe:
+    build: ./shoes-microservice-spring-boot
+    ports:
+      - 1002:1002
+    depends_on:
+      - zuul
+
+  offers:     
+    build: ./offers-microservice-spring-boot
+    ports:
+      - 1001:1001
+    depends_on:
+      - offers
+
+  cart:
+    build: ./cart-microservice-nodejs
+    ports:
+      - 1004:1004
+    depends_on:
+      - zuul    
+
+  wishlist:
+    build: ./whislist-microservice-python
+    ports:
+      - 1003:5000
+    depends_on:
+      - zuul    
