@@ -24,7 +24,7 @@ services:
     ports:
       - 1001:1001
     depends_on:
-      - offers
+      - zuul
 
   cart:
     build: ./cart-microservice-nodejs
