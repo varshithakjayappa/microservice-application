@@ -4,8 +4,6 @@ Developed in React.js
 
 ## Build Instruction
 ```
-npm install
-
 npm start
 
 ```
